@@ -14,7 +14,7 @@ A comprehensive TypeScript SDK for interacting with the [Lighter Protocol](https
 ## Installation
 
 ```bash
-npm install @lighter/sdk
+npm install lighter-sdk
 ```
 
 ## Quick Start
