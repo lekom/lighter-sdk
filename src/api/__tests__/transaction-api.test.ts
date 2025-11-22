@@ -100,7 +100,7 @@ describe('TransactionApi', () => {
 
       nock(baseURL)
         .get('/api/v1/tx')
-        .query({ tx_hash: '0xtxhash' })
+        .query({ by: 'tx_hash', tx_hash: '0xtxhash' })
         .reply(200, mockTx);
 
       const result = await api.getTransaction({ tx_hash: '0xtxhash' });
@@ -208,7 +208,7 @@ describe('TransactionApi', () => {
 
       nock(baseURL)
         .get('/api/v1/blockTxs')
-        .query({ block_number: 12345 })
+        .query({ by: 'block_number', block_number: 12345 })
         .reply(200, mockBlockTxs);
 
       const result = await api.getBlockTransactions({ block_number: 12345 });

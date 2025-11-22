@@ -1,6 +1,6 @@
 {
   "name": "lighter-sdk",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Comprehensive TypeScript SDK for the Lighter protocol",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

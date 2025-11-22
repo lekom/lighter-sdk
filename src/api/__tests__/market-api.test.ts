@@ -37,7 +37,7 @@ describe('MarketApi', () => {
 
       nock(baseURL)
         .get('/api/v1/candlesticks')
-        .query({ market_id: 1, interval: '1h' })
+        .query({ market_id: 1, resolution: '1h' })
         .reply(200, mockCandlesticks);
 
       const result = await api.getCandlesticks({ market_id: 1, interval: '1h' });

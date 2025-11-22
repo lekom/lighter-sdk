@@ -30,7 +30,7 @@ describe('AccountApi', () => {
 
       nock(baseURL)
         .get('/api/v1/account')
-        .query({ account_index: 1 })
+        .query({ by: 'account_index', account_index: 1 })
         .reply(200, mockAccount);
 
       const result = await api.getAccount({ account_index: 1 });
@@ -98,7 +98,7 @@ describe('AccountApi', () => {
 
       nock(baseURL)
         .get('/api/v1/pnl')
-        .query({ account_index: 1 })
+        .query({ by: 'account_index', account_index: 1 })
         .reply(200, mockPnL);
 
       const result = await api.getPnL({ account_index: 1 });
@@ -175,7 +175,7 @@ describe('AccountApi', () => {
 
       nock(baseURL)
         .get('/api/v1/accountMetadata')
-        .query({ account_index: 1 })
+        .query({ by: 'account_index', account_index: 1 })
         .reply(200, mockMetadata);
 
       const result = await api.getAccountMetadata({ account_index: 1 });
@@ -241,7 +241,10 @@ describe('AccountApi', () => {
         ],
       };
 
-      nock(baseURL).get('/api/v1/publicPoolsMetadata').reply(200, mockPools);
+      nock(baseURL)
+        .get('/api/v1/publicPoolsMetadata')
+        .query({ index: '0' })
+        .reply(200, mockPools);
 
       const result = await api.getPublicPoolsMetadata();
       expect(result).toEqual(mockPools);

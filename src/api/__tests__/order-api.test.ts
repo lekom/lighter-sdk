@@ -209,7 +209,7 @@ describe('OrderApi', () => {
 
       nock(baseURL)
         .get('/api/v1/trades')
-        .query({ market_id: 1 })
+        .query({ sort_by: 'time', market_id: 1 })
         .reply(200, mockTrades);
 
       const result = await api.getTrades({ market_id: 1 });
@@ -225,7 +225,7 @@ describe('OrderApi', () => {
 
       nock(baseURL)
         .get('/api/v1/export')
-        .query({ account_index: 1, start_time: 100, end_time: 200, auth: 'token' })
+        .query({ type: 'trades', account_index: 1, start_time: 100, end_time: 200, auth: 'token' })
         .reply(200, mockExport);
 
       const result = await api.exportData({

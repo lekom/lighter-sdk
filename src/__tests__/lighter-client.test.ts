@@ -114,7 +114,7 @@ describe('LighterClient', () => {
 
       nock(DEFAULT_BASE_URLS.mainnet)
         .get('/api/v1/account')
-        .query({ account_index: 1 })
+        .query({ by: 'account_index', account_index: 1 })
         .reply(200, mockAccount);
 
       const result = await client.account.getAccount({ account_index: 1 });
